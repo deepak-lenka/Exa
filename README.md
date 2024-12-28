@@ -42,13 +42,11 @@ pip install -r requirements.txt
 ```
 
 4. Set up your environment variables:
-```bash
-# Create .env file
-touch .env
-
-# Add your Exa API key to .env
-echo "EXA_API_KEY=your_api_key_here" > .env
-```
+   - Create a new file named `.env` in the project root directory
+   - Add your Exa API key to the `.env` file with the following content:
+     ```
+     EXA_API_KEY=your_api_key_here
+     ```
 
 ## Running the Application
 
