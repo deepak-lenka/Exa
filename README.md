@@ -136,5 +136,3 @@ Required environment variables in `.env`:
 ## License
 
 Made with ❤️ by Deepak Lenka
-
-This project is licensed under the MIT License - see the LICENSE file for details.
