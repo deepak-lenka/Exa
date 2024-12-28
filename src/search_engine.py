@@ -23,7 +23,7 @@ class ExaSearchEngine:
             'highlights': getattr(result, 'highlights', [])
         }
 
-    def basic_search(self, query: str, num_results: int = 5) -> List[Dict[str, Any]]:
+    def basic_search(self, query: str, num_results: int = 25) -> List[Dict[str, Any]]:
         """
         Perform a basic search using Exa's neural search
         """
@@ -42,7 +42,7 @@ class ExaSearchEngine:
 
     def advanced_search(self, 
                        query: str,
-                       num_results: int = 5,
+                       num_results: int = 50,
                        include_text: bool = True,
                        include_highlights: bool = True,
                        category: Optional[str] = None) -> List[Dict[str, Any]]:

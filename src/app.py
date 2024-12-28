@@ -4,7 +4,6 @@ from typing import Dict, Any
 
 def format_result(result: Dict[str, Any]) -> None:
     """Format and display a single search result"""
-    # Access dictionary values safely using .get()
     title = result.get('title', 'No Title')
     url = result.get('url', '#')
     score = result.get('score', 0.0)
@@ -30,7 +29,7 @@ def format_result(result: Dict[str, Any]) -> None:
     st.markdown("---")
 
 def main():
-    st.title("RLAIF Search Pipeline")
+    st.title("EXA Search Pipeline")
     
     # Initialize search engine
     search_engine = ExaSearchEngine()
@@ -42,8 +41,9 @@ def main():
     )
     
     if search_type in ["Basic Search", "Advanced Search"]:
-        query = st.text_input("Enter your search query")
-        num_results = st.slider("Number of results", 1, 10, 5)
+        query = st.text_area("Enter your search query", height=200)
+        default_results = 25 if search_type == "Basic Search" else 50
+        num_results = st.slider("Number of results", min_value=1, max_value=100, value=default_results)
         
         if search_type == "Advanced Search":
             include_text = st.checkbox("Include full text", value=True)
@@ -81,7 +81,7 @@ def main():
     
     else:  # Similar Documents
         url = st.text_input("Enter URL to find similar documents")
-        num_results = st.slider("Number of results", 1, 10, 5)
+        num_results = st.slider("Number of results", min_value=1, max_value=100, value=25)
         exclude_source = st.checkbox("Exclude source domain", value=True)
         
         if st.button("Find Similar"):
